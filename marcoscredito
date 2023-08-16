@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processar Cadastro</title>
+</head>
+<body>
+    <h1>Processar Cadastro</h1>
+    
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Acessando os dados do formulário
+        $valorInvestimento = $_POST["valorInvestimento"];
+        $formaPagamento = $_POST["formaPagamento"];
+        $numeroCelular = $_POST["numeroCelular"];
+        $cpf = $_POST["cpf"];
+        $chavePix = $_POST["chavePix"];
+
+        // Validação de dados (exemplo: verificar se os campos não estão vazios)
+        if (empty($valorInvestimento) || empty($formaPagamento) || empty($numeroCelular) || empty($cpf) || empty($chavePix)) {
+            echo "<p>Preencha todos os campos do formulário.</p>";
+        } else {
+            // Processamento dos dados (exemplo: exibir os dados na tela)
+            echo "<p>Cadastro recebido com sucesso!</p>";
+            echo "<p>Valor de investimento: $valorInvestimento</p>";
+            echo "<p>Forma de pagamento: $formaPagamento</p>";
+            echo "<p>Número de celular: $numeroCelular</p>";
+            echo "<p>CPF: $cpf</p>";
+            echo "<p>Chave Pix: $chavePix</p>";
+
+            // Aqui você pode adicionar código para salvar os dados em um banco de dados, por exemplo
+            // ...
+        }
+    } else {
+        echo "<p>Erro ao processar o cadastro.</p>";
+    }
+    ?>
+</body>
+</html>
